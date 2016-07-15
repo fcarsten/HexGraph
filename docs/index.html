@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+
+<TITLE>Java(TM) Web Start Demos</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<style type="text/css">
+<!--
+/* GENERIC */
+span.wrapper { font-size: 13px; font-family: Verdana, Arial, Helvetica, sans-serif }
+span.title { color: #000000; font-size: 20px; font-weight: bold; font-family: verdana, sans-serif }
+span.body, td, dd { color: #000000; font-size: 13px; font-family: verdana, sans-serif }
+ul, ol, blockquote, p { color: #000000; font-size: 13px; font-family: verdana, sans-serif }
+h1 { color: #000000; font-weight: bold; font-size: 20px; font-family: verdana, sans-serif }
+h2 { color: #000000; font-weight: bold; font-size: 18px; font-family: verdana, sans-serif }
+h3 { color: #000000; font-weight: bold; font-size: 16px; font-family: verdana, sans-serif }
+h4 { color: #000000; font-weight: bold; font-size: 14px; font-family: verdana, sans-serif }
+h5 { color: #000000; font-weight: bold; font-size: 12px; font-family: verdana, sans-serif }
+dt { color: #000000; font-size: 13px; font-family: verdana, sans-serif; font-weight:bold; padding-top:5px }
+
+a:link { color:#0000ff }
+a:visited { color:#660066 }
+a:active { color:#000000 }
+
+a.tab:link { text-decoration: none; color: #333366; font-size: 14px; font-family: verdana, sans-serif; font-weight:bold }
+a.tab:active { text-decoration: none; color: #000000; font-size: 14px; font-family: verdana, sans-serif; font-weight:bold }
+a.tab:visited { text-decoration: none; color: #333366; font-size: 14px; font-family: verdana, sans-serif; font-weight:bold }
+
+a.tab2:link { text-decoration: none; color: #ffffff; font-size: 14px; font-family: verdana, sans-serif; font-weight:bold}
+a.tab2:active { text-decoration: none; color: #000000; font-size: 14px; font-family: verdana, sans-serif; font-weight:bold }
+a.tab2:visited { text-decoration: none; color: #ffffff; font-size: 14px; font-family: verdana, sans-serif; font-weight:bold }
+
+a.footer:link    { font-size: 10px; font-family: verdana, sans-serif; color:#0000ff }
+a.footer:visited { font-size: 10px; font-family: verdana, sans-serif; color:#660066 }
+a.footer:active  { font-size: 10px; font-family: verdana, sans-serif; color:#000000 }
+
+span.copyright { color: #000000; font-size: 10px; font-family: verdana, sans-serif }
+span.date      { color: #cccccc; font-size: 10px; font-family: verdana, sans-serif }
+span.byline { color: #000000; font-size: 13px; font-family: verdana, sans-serif }
+
+code,tt,pre { font-family: courier, "courier new", monaco; font-size: 12px; color: #000000 }
+
+td.dkgray { background:#999999 }
+td.white { background:#ffffff }
+td.yellow { background:#ffffcc }
+-->
+</style>
+
+
+	
+<!--- JavaScript to detect if Java Web Start is installed or not --->
+
+<SCRIPT LANGUAGE="Javascript">
+   var javawsInstalled = 0;
+   isIE = "false";
+
+   if (navigator.mimeTypes && navigator.mimeTypes.length) {
+      x = navigator.mimeTypes['application/x-java-jnlp-file'];
+      if (x) javawsInstalled = 1;
+    } else { 
+      isIE = "true";
+    }
+
+    function insertLink(url, name) {
+       if (javawsInstalled) {
+          document.write("<a href=" + url + ">"  + name + "</a>");
+       } else {
+          document.write("Need to install Java Web Start");
+       }
+    }
+
+    function launchLink2(imageUrl, jnlpUrl, title, desc) {       
+       var realUrl = "needdownload.html";
+       if (javawsInstalled) {
+         realUrl = jnlpUrl;
+       }
+
+       document.write("<div align=\"right\">");
+       document.write("<table width=\"100%\" border=\"0\">");
+       document.write("<tr>");
+       document.write("<td width=\"40%\">");
+       document.write("<img src=\"" + imageUrl + "\" width=\"130\" height=\"107\">");
+       document.write("</td>");
+       document.write("<td width=\"60%\">");
+       document.write("<h2 align=\"center\">" + title + "</h2>");
+       document.write("<p> " + desc);
+       document.write("<center><form action=\"" + realUrl + " method=\"GET\"><input type=\"submit\" value=\"Launch\" align=\"right\"></form>");
+       document.write("</center></td></tr></table></div>");
+    }    
+
+
+    function launchLink(imageUrl, jnlpUrl, title, desc) {       
+       var realUrl = "needdownload.html";
+       if (javawsInstalled) {
+         realUrl = jnlpUrl;
+       }
+       document.write("<center><div align=center>");
+       document.write("<a href=" + realUrl + "><img src=" + imageUrl + " width=\"114\" height=\"200\" BORDER=\"0\"></a></div>");
+       document.write("<form action=\"" + realUrl + "\" METHOD=\"GET\"><input type=\"submit\" value=\"Launch\"></form>");
+       document.write("</center>");
+    }    
+</SCRIPT>
+
+
+<SCRIPT LANGUAGE="VBScript">
+on error resume next
+If isIE = "true" Then
+  If Not(IsObject(CreateObject("JavaWebStart.IsInstalled"))) Then
+     javawsInstalled = 0
+  Else
+    javawsInstalled = 1
+  End If
+End If
+</SCRIPT>
+
+<!--stopindex-->
+
+<BODY BACKGROUND="image38358.jpeg">
+
+<center>
+<B>Hex</B><BR>
+The popular Hex Game with the classic and a new user
+interface.<BR>Play against another player on the same board or across
+the network or play against a (not very good) computer player.
+
+
+<TD BGCOLOR="#ffffcc">
+<P>
+
+<SCRIPT LANGUAGE="Javascript" TYPE="text/javascript">
+ <!--
+ launchLink("hex.gif", "hex.jnlp", 114, 200);
+// --> 
+</SCRIPT>
+
+By Colin Murray and  <A HREF="mailto:Carsten.Friedrich@gmail.com">Carsten Friedrich</A>
+<P>
+Using code from Hex Maniac v1.2, Copyright Cameron Browne 5/10/2000
+<P>
+Using code from Thomas Jahn's article "Coordinates in Hexagon based Tile Maps"
+
+</BODY>
+</HTML>
+  

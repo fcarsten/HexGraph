@@ -1,0 +1,804 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0056)http://pixelpracht.flipcode.com/files/hexcoordsTut_e.htm -->
+<HTML xmlns="http://www.w3.org/TR/REC-html40" xmlns:v = 
+"urn:schemas-microsoft-com:vml" xmlns:o = 
+"urn:schemas-microsoft-com:office:office" xmlns:w = 
+"urn:schemas-microsoft-com:office:word"><HEAD><TITLE>Coordinates in Hexagon based Tile Maps</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content=Word.Document name=ProgId>
+<META content="MSHTML 6.00.2800.1126" name=GENERATOR>
+<META content="Microsoft Word 10" name=Originator><LINK 
+href="hexcoordsTut_e-Dateien/filelist.xml" rel=File-List><LINK 
+href="hexcoordsTut_e-Dateien/editdata.mso" rel=Edit-Time-Data><!--[if !mso]>
+<STYLE>v\:* {
+	BEHAVIOR: url(#default#VML)
+}
+o\:* {
+	BEHAVIOR: url(#default#VML)
+}
+w\:* {
+	BEHAVIOR: url(#default#VML)
+}
+.shape {
+	BEHAVIOR: url(#default#VML)
+}
+</STYLE>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Lithander</o:Author>
+  <o:LastAuthor>Lithander</o:LastAuthor>
+  <o:Revision>3</o:Revision>
+  <o:Created>2002-03-10T00:47:00Z</o:Created>
+  <o:LastSaved>2002-06-27T16:58:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>1076</o:Words>
+  <o:Characters>6785</o:Characters>
+  <o:Company>Privat</o:Company>
+  <o:Lines>56</o:Lines>
+  <o:Paragraphs>15</o:Paragraphs>
+  <o:CharactersWithSpaces>7846</o:CharactersWithSpaces>
+  <o:Version>10.2625</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:HyphenationZone>21</w:HyphenationZone>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]-->
+<STYLE>@font-face {
+	font-family: Arial Black;
+}
+@page Section1 {size: 595.3pt 841.9pt; margin: 70.85pt 70.85pt 2.0cm 70.85pt; mso-header-margin: 35.4pt; mso-footer-margin: 35.4pt; mso-paper-source: 0; }
+P.MsoNormal {
+	FONT-SIZE: 12pt; MARGIN: 0cm 0cm 0pt; FONT-FAMILY: "Times New Roman"; mso-style-parent: ""; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+LI.MsoNormal {
+	FONT-SIZE: 12pt; MARGIN: 0cm 0cm 0pt; FONT-FAMILY: "Times New Roman"; mso-style-parent: ""; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+DIV.MsoNormal {
+	FONT-SIZE: 12pt; MARGIN: 0cm 0cm 0pt; FONT-FAMILY: "Times New Roman"; mso-style-parent: ""; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+A:link {
+	COLOR: blue; TEXT-DECORATION: underline; text-underline: single
+}
+SPAN.MsoHyperlink {
+	COLOR: blue; TEXT-DECORATION: underline; text-underline: single
+}
+A:visited {
+	COLOR: purple; TEXT-DECORATION: underline; text-underline: single
+}
+SPAN.MsoHyperlinkFollowed {
+	COLOR: purple; TEXT-DECORATION: underline; text-underline: single
+}
+SPAN.SpellE {
+	mso-style-name: ""; mso-spl-e: yes
+}
+SPAN.GramE {
+	mso-style-name: ""; mso-gram-e: yes
+}
+DIV.Section1 {
+	page: Section1
+}
+</STYLE>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Normale Tabelle";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="2050"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]--></HEAD>
+<BODY lang=DE style="tab-interval: 35.4pt" vLink=purple link=blue>
+<DIV class=Section1>
+<P class=MsoNormal><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">Thomas 
+Jahn<SPAN style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp; </SPAN><SPAN 
+style="mso-tab-count: 6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN><SPAN style="FONT-FAMILY: Arial"><SPAN 
+style="mso-tab-count: 7">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN><SPAN 
+style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">28. Feb. 2002 
+</SPAN><SPAN style="FONT-SIZE: 8pt; FONT-FAMILY: Arial">(<SPAN 
+class=SpellE>l.r</SPAN>. 27.06.02)</SPAN><SPAN 
+style="FONT-FAMILY: Arial"><o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+style="FONT-SIZE: 14pt; FONT-FAMILY: 'Arial Black'"><o:p>&nbsp;</o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN lang=EN-GB 
+style="FONT-SIZE: 14pt; FONT-FAMILY: 'Arial Black'; mso-ansi-language: EN-GB">Coordinates 
+in Hexagon based Tile Maps<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN lang=EN-GB 
+style="FONT-SIZE: 14pt; FONT-FAMILY: 'Arial Black'; mso-ansi-language: EN-GB"><o:p>&nbsp;</o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB 
+style="FONT-FAMILY: 'Arial Black'; mso-ansi-language: EN-GB">Introduction<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB 
+style="FONT-FAMILY: Arial; mso-ansi-language: EN-GB"><o:p>&nbsp;</o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB style="mso-ansi-language: EN-GB">Tile Maps 
+are often used for the graphics in two-dimensional Games. Using Tiles means that 
+all graphics are combinations of smaller graphics, similar to mosaics. The 
+advantage is a smaller need for Memory. The <SPAN class=SpellE>Tilesets</SPAN> 
+are seldom bigger than some hundreds of Kilobytes and a Map needs far less 
+memory than a pre rendered image; it needs only a pointer per field that 
+identifies the used Tile.<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB"><o:p>&nbsp;</o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB style="mso-ansi-language: EN-GB">The 
+simplest tiling system has plain squares. It’s used in games like <SPAN 
+class=SpellE>Warcraft</SPAN> II or the first C&amp;C 
+parts.<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB style="mso-ansi-language: EN-GB">For 
+isometric views a la Diablo or Ulitma7 you usually use diamond shaped Tiles. 
+These Tiles allow you to achieve a pseudo 3D look.<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB style="mso-ansi-language: EN-GB">Both tiling 
+systems have a major disadvantage. All movements are restricted to four 
+directions (vertical and horizontal for squares and diagonal for diamonds) or 
+you have to cope with different step distances. (The distance between two tiles 
+that touch only at the edges is bigger, then the distance of tiles that touch at 
+the sides.)<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB style="mso-ansi-language: EN-GB">A very nice 
+solution offers a hexagon based tile system. It allows movements in 6 directions 
+with equal distances, so it’s used especially by tactical games like Panzer 
+General. A second advantage is that those hexagon tiled maps look just better 
+then simple square maps.<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB style="mso-ansi-language: EN-GB">On the 
+other side it is harder to handle for artists as well as for the programmers. 
+This article solves some problems you might have when trying to implement 
+hexagon based tile maps. I will explain how to plot the tiles correctly and how 
+to define which pixel is on what hexagon (<SPAN class=SpellE>a.e</SPAN>. for 
+mouse event handling).<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB"><o:p>&nbsp;</o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB 
+style="FONT-FAMILY: 'Arial Black'; mso-ansi-language: EN-GB">The mathematical 
+structure of Hexagons<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB 
+style="FONT-FAMILY: 'Arial Black'; mso-ansi-language: EN-GB"><o:p>&nbsp;</o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB style="mso-ansi-language: EN-GB">First of 
+all let’s have a look at the mathematical characteristics of a 
+hexagon.<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: center" 
+align=center><!--[if gte vml 1]><v:shapetype id=_x0000_t75 coordsize = 
+"21600,21600" o:preferrelative = "t" o:spt = "75" filled = "f" stroked = "f" 
+path = " m@4@5 l@4@11@9@11@9@5 xe"><v:stroke joinstyle = 
+"miter"></v:stroke><v:formulas><v:f eqn = 
+"if lineDrawn pixelLineWidth 0 "></v:f><v:f eqn = "sum @0 1 0 "></v:f><v:f eqn = 
+"sum 0 0 @1 "></v:f><v:f eqn = "prod @2 1 2 "></v:f><v:f eqn = 
+"prod @3 21600 pixelWidth "></v:f><v:f eqn = 
+"prod @3 21600 pixelHeight "></v:f><v:f eqn = "sum @0 0 1 "></v:f><v:f eqn = 
+"prod @6 1 2 "></v:f><v:f eqn = "prod @7 21600 pixelWidth "></v:f><v:f eqn = 
+"sum @8 21600 0 "></v:f><v:f eqn = "prod @7 21600 pixelHeight "></v:f><v:f eqn = 
+"sum @10 21600 0 "></v:f></v:formulas><v:path o:extrusionok = "f" 
+gradientshapeok = "t" o:connecttype = "rect"></v:path><o:lock aspectratio="t" 
+v:ext="edit"></o:lock></v:shapetype><v:shape id=_x0000_i1025 
+style="WIDTH: 287.25pt; HEIGHT: 258pt" type = "#_x0000_t75" coordsize = 
+"21600,21600"><v:imagedata o:title="hexagon1" src = 
+"hexcoordsTut_e-Dateien/image001.png"></v:imagedata></v:shape><![endif]--><![if !vml]><img width=383 height=344
+src="hexcoordsTut_e-Dateien/image002.gif" v:shapes="_x0000_i1025"><![endif]></P>
+<P class=MsoNormal><SPAN lang=EN-GB style="mso-ansi-language: EN-GB">In a 
+hexagon all six sides have the same length <B 
+style="mso-bidi-font-weight: normal">s</B> that meet in an angle of 
+120°.<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB style="mso-ansi-language: EN-GB">All other 
+values depend on <B style="mso-bidi-font-weight: normal">s</B>, so if you set <B 
+style="mso-bidi-font-weight: normal">s </B>you can easily calculate the missing 
+information:<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB"><o:p>&nbsp;</o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB style="mso-ansi-language: EN-GB">The height 
+<B style="mso-bidi-font-weight: normal">h</B>:<SPAN 
+style="mso-tab-count: 7">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN><B style="mso-bidi-font-weight: normal"><SPAN lang=EN-GB 
+style="FONT-FAMILY: Arial; mso-ansi-language: EN-GB">h = <SPAN 
+class=GramE>sin(</SPAN> 30°) * s<o:p></o:p></SPAN></B></P>
+<P class=MsoNormal><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB"><o:p>&nbsp;</o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB style="mso-ansi-language: EN-GB">The 
+distance <B style="mso-bidi-font-weight: normal">r</B>:<SPAN 
+style="mso-tab-count: 7">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN><B style="mso-bidi-font-weight: normal"><SPAN lang=EN-GB 
+style="FONT-FAMILY: Arial; mso-ansi-language: EN-GB">r = <SPAN 
+class=SpellE><SPAN class=GramE>cos</SPAN></SPAN><SPAN class=GramE>(</SPAN> 30°) 
+* s<o:p></o:p></SPAN></B></P>
+<P class=MsoNormal><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB"><o:p>&nbsp;</o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB style="mso-ansi-language: EN-GB">The height 
+of the surrounding rectangle <B style="mso-bidi-font-weight: normal">b:<SPAN 
+style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN></B><SPAN style="mso-spacerun: yes">&nbsp; </SPAN><SPAN 
+style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN><B style="mso-bidi-font-weight: normal"><SPAN lang=EN-GB 
+style="FONT-FAMILY: Arial; mso-ansi-language: EN-GB">b = s + 2 * 
+h</SPAN></B><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB"><o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB"><o:p>&nbsp;</o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB style="mso-ansi-language: EN-GB">The width 
+of the surrounding rectangle <B style="mso-bidi-font-weight: normal">a</B>:<SPAN 
+style="mso-tab-count: 3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN><B style="mso-bidi-font-weight: normal"><SPAN lang=EN-GB 
+style="FONT-FAMILY: Arial; mso-ansi-language: EN-GB">a = 2 * 
+r<o:p></o:p></SPAN></B></P>
+<P class=MsoNormal><B style="mso-bidi-font-weight: normal"><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB"><o:p>&nbsp;</o:p></SPAN></B></P>
+<P class=MsoNormal><SPAN lang=EN-GB 
+style="FONT-FAMILY: 'Arial Black'; mso-ansi-language: EN-GB">Converting array 
+coordinates to pixel coordinates<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB"><o:p>&nbsp;</o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB style="mso-ansi-language: EN-GB">As in all 
+other tile maps the information of hexagon based tile maps is stored in a two 
+dimensional array. To plot hexagonal tiles we need to know the pixel coordinate 
+of the top left edge of the rectangle that surrounds the hexagon. As we only 
+know the array coordinate (the position in the array) we have to find a way to 
+convert these coordinates to pixel coordinates.<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: center" 
+align=center><!--[if gte vml 1]><v:shape id=_x0000_i1026 
+style="WIDTH: 375pt; HEIGHT: 300pt" type = "#_x0000_t75" coordsize = 
+"21600,21600"><v:imagedata o:title="hexmap1" src = 
+"hexcoordsTut_e-Dateien/image003.gif"></v:imagedata></v:shape><![endif]--><![if !vml]><img width=500 height=400
+src="hexcoordsTut_e-Dateien/image003.gif" v:shapes="_x0000_i1026"><![endif]></P>
+<P class=MsoNormal><SPAN lang=EN-GB style="mso-ansi-language: EN-GB">If you have 
+a look at the above picture you’ll probably realize that every second row of 
+tiles is indented by <B 
+style="mso-bidi-font-weight: normal">r</B>.<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB"><o:p>&nbsp;</o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB style="mso-ansi-language: EN-GB">For even 
+rows (blue-green) we have to use this calculation:<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN class=SpellE><SPAN class=GramE><B 
+style="mso-bidi-font-weight: normal"><SPAN lang=EN-GB 
+style="FONT-FAMILY: Arial; mso-ansi-language: EN-GB">x</SPAN></B><SPAN 
+lang=EN-GB 
+style="FONT-SIZE: 8pt; FONT-FAMILY: Arial; mso-ansi-language: EN-GB">pixel</SPAN></SPAN></SPAN><SPAN 
+class=GramE><B style="mso-bidi-font-weight: normal"><SPAN lang=EN-GB 
+style="FONT-FAMILY: Arial; mso-ansi-language: EN-GB"><SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>=</SPAN></B></SPAN><B 
+style="mso-bidi-font-weight: normal"><SPAN lang=EN-GB 
+style="FONT-FAMILY: Arial; mso-ansi-language: EN-GB"><SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN><SPAN class=SpellE>x<SPAN 
+style="FONT-WEIGHT: normal; FONT-SIZE: 8pt">field</SPAN></SPAN> * 2 
+r<o:p></o:p></SPAN></B></P>
+<P class=MsoNormal><SPAN class=SpellE><SPAN class=GramE><B 
+style="mso-bidi-font-weight: normal"><SPAN lang=EN-GB 
+style="FONT-FAMILY: Arial; mso-ansi-language: EN-GB">y</SPAN></B><SPAN 
+lang=EN-GB 
+style="FONT-SIZE: 8pt; FONT-FAMILY: Arial; mso-ansi-language: EN-GB">pixel</SPAN></SPAN></SPAN><SPAN 
+class=GramE><SPAN lang=EN-GB 
+style="FONT-FAMILY: Arial; mso-ansi-language: EN-GB"><SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN><B 
+style="mso-bidi-font-weight: normal">=</B></SPAN></SPAN><B 
+style="mso-bidi-font-weight: normal"><SPAN lang=EN-GB 
+style="FONT-FAMILY: Arial; mso-ansi-language: EN-GB"><SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN><SPAN class=SpellE>y<SPAN 
+style="FONT-WEIGHT: normal; FONT-SIZE: 8pt">field</SPAN></SPAN> * ( h + s 
+)<o:p></o:p></SPAN></B></P>
+<P class=MsoNormal><B style="mso-bidi-font-weight: normal"><SPAN lang=EN-GB 
+style="FONT-FAMILY: Arial; mso-ansi-language: EN-GB"><o:p>&nbsp;</o:p></SPAN></B></P>
+<P class=MsoNormal><SPAN lang=EN-GB style="mso-ansi-language: EN-GB">For odd 
+rows (red-orange) we have to add <B style="mso-bidi-font-weight: normal">r 
+</B>to the horizontal pixel coordinate:<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN class=SpellE><SPAN class=GramE><B 
+style="mso-bidi-font-weight: normal"><SPAN lang=EN-GB 
+style="FONT-FAMILY: Arial; mso-ansi-language: EN-GB">x</SPAN></B><SPAN 
+lang=EN-GB 
+style="FONT-SIZE: 8pt; FONT-FAMILY: Arial; mso-ansi-language: EN-GB">pixel</SPAN></SPAN></SPAN><SPAN 
+class=GramE><B style="mso-bidi-font-weight: normal"><SPAN lang=EN-GB 
+style="FONT-FAMILY: Arial; mso-ansi-language: EN-GB"><SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>=</SPAN></B></SPAN><B 
+style="mso-bidi-font-weight: normal"><SPAN lang=EN-GB 
+style="FONT-FAMILY: Arial; mso-ansi-language: EN-GB"><SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN><SPAN class=SpellE>x<SPAN 
+style="FONT-WEIGHT: normal; FONT-SIZE: 8pt">field</SPAN></SPAN> * 2 r + 
+r<o:p></o:p></SPAN></B></P>
+<P class=MsoNormal><SPAN class=SpellE><SPAN class=GramE><B 
+style="mso-bidi-font-weight: normal"><SPAN lang=EN-GB 
+style="FONT-FAMILY: Arial; mso-ansi-language: EN-GB">y</SPAN></B><SPAN 
+lang=EN-GB 
+style="FONT-SIZE: 8pt; FONT-FAMILY: Arial; mso-ansi-language: EN-GB">pixel</SPAN></SPAN></SPAN><SPAN 
+class=GramE><SPAN lang=EN-GB 
+style="FONT-FAMILY: Arial; mso-ansi-language: EN-GB"><SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN><B 
+style="mso-bidi-font-weight: normal">=</B></SPAN></SPAN><B 
+style="mso-bidi-font-weight: normal"><SPAN lang=EN-GB 
+style="FONT-FAMILY: Arial; mso-ansi-language: EN-GB"><SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN><SPAN class=SpellE>y<SPAN 
+style="FONT-WEIGHT: normal; FONT-SIZE: 8pt">field</SPAN></SPAN> * ( h + s 
+)<o:p></o:p></SPAN></B></P>
+<P class=MsoNormal><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB"><o:p>&nbsp;</o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB style="mso-ansi-language: EN-GB">It’s not 
+hard to write that as program code:<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB 
+style="FONT-FAMILY: Arial; mso-ansi-language: EN-GB"><o:p>&nbsp;</o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB">//pseudo 
+Code!!!<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN class=SpellE><SPAN class=GramE><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB">PixelX</SPAN></SPAN></SPAN><SPAN 
+class=GramE><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB"> 
+:=</SPAN></SPAN><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB"> <SPAN 
+class=SpellE>ArrayX</SPAN> * 2 * <SPAN class=SpellE>TileR</SPAN> + (<SPAN 
+class=SpellE>FieldX</SPAN> AND 1) * <SPAN 
+class=SpellE>TileR</SPAN><o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN class=SpellE><SPAN class=GramE><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB">PixelY</SPAN></SPAN></SPAN><SPAN 
+class=GramE><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB"> 
+:=</SPAN></SPAN><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB"> <SPAN 
+class=SpellE>ArrayY</SPAN> * (<SPAN class=SpellE>HexagonH</SPAN> + <SPAN 
+class=SpellE>HexagonS</SPAN>);<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB"><o:p>&nbsp;</o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB"><o:p>&nbsp;</o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB 
+style="COLOR: black; mso-ansi-language: EN-GB">AND is a </SPAN><SPAN 
+class=SpellE><SPAN class=GramE><SPAN lang=EN-GB 
+style="COLOR: red; mso-ansi-language: EN-GB">boolean</SPAN></SPAN></SPAN><SPAN 
+lang=EN-GB style="COLOR: black; mso-ansi-language: EN-GB"> And-Operator. The 
+result of the brackets is always one, if the last bit of <SPAN 
+class=SpellE>ArrayX</SPAN> is on</SPAN><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB">, that means<SPAN style="COLOR: black"> that 
+<SPAN class=SpellE>ArrayX</SPAN> is odd. <o:p></o:p></SPAN></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB 
+style="COLOR: black; mso-ansi-language: EN-GB"><o:p>&nbsp;</o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB 
+style="FONT-FAMILY: 'Arial Black'; mso-ansi-language: EN-GB">Converting pixel 
+coordinates to array coordinates<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB 
+style="FONT-FAMILY: Arial; mso-ansi-language: EN-GB"><o:p>&nbsp;</o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB style="mso-ansi-language: EN-GB">Now it 
+should be quite easy to plot our map. But that’s not enough! It becomes 
+complicated again if we want to know on which tile (the array coordinate) our 
+mouse cursor points. To solve this we have to find a way to convert pixel 
+coordinates to array coordinates. A relatively simple solution is using a <SPAN 
+class=SpellE>Mousemap</SPAN> (like <SPAN class=SpellE>CivII</SPAN> does) but 
+there is a more elegant and faster way.<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB"><o:p>&nbsp;</o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB style="mso-ansi-language: EN-GB">The first 
+thing we do is to get the pixel coordinate. If we have scrollable map we have to 
+add the position of the left top edge of our viewable sector to our cursor 
+position.<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB"><o:p>&nbsp;</o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB style="mso-ansi-language: EN-GB">Now we 
+divide our map into rectangular sections. Have a look at the illustration below! 
+It’s quite easy to calculate in which section our pixel coordinate lies in. A 
+section has a height of <B style="mso-bidi-font-weight: normal">h + s </B>and a 
+width of <B style="mso-bidi-font-weight: normal">2 * r</B> (or simply a). 
+Therefore we can make these simple equations:<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB"><o:p>&nbsp;</o:p></SPAN></P>
+<P class=MsoNormal><SPAN class=SpellE><SPAN class=GramE><B 
+style="mso-bidi-font-weight: normal"><SPAN lang=EN-GB 
+style="FONT-FAMILY: Arial; mso-ansi-language: EN-GB">x</SPAN></B><SPAN 
+lang=EN-GB 
+style="FONT-SIZE: 8pt; FONT-FAMILY: Arial; mso-ansi-language: EN-GB">section</SPAN></SPAN></SPAN><SPAN 
+class=GramE><B style="mso-bidi-font-weight: normal"><SPAN lang=EN-GB 
+style="FONT-FAMILY: Arial; mso-ansi-language: EN-GB"><SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>=</SPAN></B></SPAN><B 
+style="mso-bidi-font-weight: normal"><SPAN lang=EN-GB 
+style="FONT-FAMILY: Arial; mso-ansi-language: EN-GB"><SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN><SPAN class=SpellE>x<SPAN 
+style="FONT-WEIGHT: normal; FONT-SIZE: 8pt">pixel</SPAN></SPAN> / ( 2 r 
+)<o:p></o:p></SPAN></B></P>
+<P class=MsoNormal><SPAN class=SpellE><SPAN class=GramE><B 
+style="mso-bidi-font-weight: normal"><SPAN lang=EN-GB 
+style="FONT-FAMILY: Arial; mso-ansi-language: EN-GB">y</SPAN></B><SPAN 
+lang=EN-GB 
+style="FONT-SIZE: 8pt; FONT-FAMILY: Arial; mso-ansi-language: EN-GB">section</SPAN></SPAN></SPAN><SPAN 
+class=GramE><SPAN lang=EN-GB 
+style="FONT-SIZE: 8pt; FONT-FAMILY: Arial; mso-ansi-language: EN-GB"> 
+</SPAN><SPAN lang=EN-GB 
+style="FONT-FAMILY: Arial; mso-ansi-language: EN-GB"><SPAN 
+style="mso-spacerun: yes">&nbsp;</SPAN><B 
+style="mso-bidi-font-weight: normal">=</B></SPAN></SPAN><B 
+style="mso-bidi-font-weight: normal"><SPAN lang=EN-GB 
+style="FONT-FAMILY: Arial; mso-ansi-language: EN-GB"><SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN><SPAN class=SpellE>y<SPAN 
+style="FONT-WEIGHT: normal; FONT-SIZE: 8pt">pixel</SPAN></SPAN> / ( h + s 
+)<o:p></o:p></SPAN></B></P>
+<P class=MsoNormal><B style="mso-bidi-font-weight: normal"><SPAN lang=EN-GB 
+style="FONT-FAMILY: Arial; mso-ansi-language: EN-GB"><o:p>&nbsp;</o:p></SPAN></B></P>
+<P class=MsoNormal><SPAN lang=EN-GB style="mso-ansi-language: EN-GB">Keep in 
+mind that you have to round off when doing these 
+calculations.<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB style="mso-ansi-language: EN-GB">It’s not 
+enough to know in which section we are. We also need to know on which pixel 
+within the section we are. To get that we subtract the position of the left top 
+edge of our section from the global pixel coordinate.<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB"><o:p>&nbsp;</o:p></SPAN></P>
+<P class=MsoNormal><SPAN class=SpellE><SPAN class=GramE><B 
+style="mso-bidi-font-weight: normal"><SPAN lang=EN-GB 
+style="FONT-FAMILY: Arial; mso-ansi-language: EN-GB">x</SPAN></B><SPAN 
+lang=EN-GB 
+style="FONT-SIZE: 8pt; FONT-FAMILY: Arial; mso-ansi-language: EN-GB">sectpxl</SPAN></SPAN></SPAN><SPAN 
+class=GramE><B style="mso-bidi-font-weight: normal"><SPAN lang=EN-GB 
+style="FONT-FAMILY: Arial; mso-ansi-language: EN-GB"><SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>=</SPAN></B></SPAN><B 
+style="mso-bidi-font-weight: normal"><SPAN lang=EN-GB 
+style="FONT-FAMILY: Arial; mso-ansi-language: EN-GB"><SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN><SPAN class=SpellE>x<SPAN 
+style="FONT-WEIGHT: normal; FONT-SIZE: 8pt">pixel</SPAN></SPAN> - <SPAN 
+class=SpellE>x<SPAN 
+style="FONT-WEIGHT: normal; FONT-SIZE: 8pt">section</SPAN></SPAN> * ( 2 r 
+)<o:p></o:p></SPAN></B></P>
+<P class=MsoNormal><SPAN class=SpellE><SPAN class=GramE><B 
+style="mso-bidi-font-weight: normal"><SPAN lang=EN-GB 
+style="FONT-FAMILY: Arial; mso-ansi-language: EN-GB">y</SPAN></B><SPAN 
+lang=EN-GB 
+style="FONT-SIZE: 8pt; FONT-FAMILY: Arial; mso-ansi-language: EN-GB">sectpxl</SPAN></SPAN></SPAN><SPAN 
+class=GramE><SPAN lang=EN-GB 
+style="FONT-FAMILY: Arial; mso-ansi-language: EN-GB"><SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN><B 
+style="mso-bidi-font-weight: normal">=</B></SPAN></SPAN><B 
+style="mso-bidi-font-weight: normal"><SPAN lang=EN-GB 
+style="FONT-FAMILY: Arial; mso-ansi-language: EN-GB"><SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN><SPAN class=SpellE>y<SPAN 
+style="FONT-WEIGHT: normal; FONT-SIZE: 8pt">pixel</SPAN></SPAN> - <SPAN 
+class=SpellE>y<SPAN 
+style="FONT-WEIGHT: normal; FONT-SIZE: 8pt">section</SPAN></SPAN> * ( h + s 
+)<o:p></o:p></SPAN></B></P>
+<P class=MsoNormal><B style="mso-bidi-font-weight: normal"><SPAN lang=EN-GB 
+style="FONT-FAMILY: Arial; mso-ansi-language: EN-GB"><o:p>&nbsp;</o:p></SPAN></B></P>
+<P class=MsoNormal><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB"><o:p>&nbsp;</o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: center" 
+align=center><!--[if gte vml 1]><v:shape id=_x0000_i1027 
+style="WIDTH: 198.75pt; HEIGHT: 165.75pt" type = "#_x0000_t75" coordsize = 
+"21600,21600"><v:imagedata o:title="hexsects1" src = 
+"hexcoordsTut_e-Dateien/image004.gif"></v:imagedata></v:shape><![endif]--><![if !vml]><img width=265 height=221
+src="hexcoordsTut_e-Dateien/image004.gif" v:shapes="_x0000_i1027"><![endif]></P>
+<P class=MsoNormal><o:p>&nbsp;</o:p></P>
+<P class=MsoNormal><o:p>&nbsp;</o:p></P>
+<P class=MsoNormal><SPAN lang=EN-GB style="mso-ansi-language: EN-GB">There are 
+two different types of section as you can see. It’s very important to know of 
+what type our section is. Looking at the above illustration you might realize 
+that sections in even rows (those with an even </SPAN><SPAN class=SpellE><B 
+style="mso-bidi-font-weight: normal"><SPAN lang=EN-GB 
+style="FONT-FAMILY: Arial; mso-ansi-language: EN-GB">y</SPAN></B><SPAN 
+lang=EN-GB 
+style="FONT-SIZE: 8pt; FONT-FAMILY: Arial; mso-ansi-language: EN-GB">section</SPAN></SPAN><B 
+style="mso-bidi-font-weight: normal"><SPAN lang=EN-GB 
+style="FONT-SIZE: 8pt; FONT-FAMILY: Arial; mso-ansi-language: EN-GB"> 
+</SPAN></B><SPAN lang=EN-GB style="mso-ansi-language: EN-GB">value) are type A 
+while sections in odd rows are of type B.<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB"><o:p>&nbsp;</o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB style="mso-ansi-language: EN-GB">Let’s see 
+how all these calculations are coded:<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB"><o:p>&nbsp;</o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=FR 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: FR">//pseudo 
+Code!!!<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=FR 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: FR">SectX := 
+PixelX div (2 * TileR);<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN class=SpellE><SPAN class=GramE><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB">SectY</SPAN></SPAN></SPAN><SPAN 
+class=GramE><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB"> 
+:=</SPAN></SPAN><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB"> <SPAN 
+class=SpellE>PixelY</SPAN> div (<SPAN class=SpellE>HexagonH</SPAN> + <SPAN 
+class=SpellE>HexagonS</SPAN>);<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB"><o:p>&nbsp;</o:p></SPAN></P>
+<P class=MsoNormal><SPAN class=SpellE><SPAN class=GramE><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB">SectPxlX</SPAN></SPAN></SPAN><SPAN 
+class=GramE><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB"> 
+:=</SPAN></SPAN><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB"> <SPAN 
+class=SpellE>PixelX</SPAN> mod (2 * <SPAN 
+class=SpellE>TileR</SPAN>);<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN class=SpellE><SPAN class=GramE><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB">SectPxlY</SPAN></SPAN></SPAN><SPAN 
+class=GramE><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB"> 
+:=</SPAN></SPAN><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB"> <SPAN 
+class=SpellE>PixelY</SPAN> mod (<SPAN class=SpellE>HexagonH</SPAN> + <SPAN 
+class=SpellE>HexagonS</SPAN>);<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB"><o:p>&nbsp;</o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB">If 
+(<SPAN class=SpellE>SectY</SPAN> AND 1 = 0) then <SPAN class=SpellE><SPAN 
+class=GramE>SectTyp</SPAN></SPAN><SPAN class=GramE> :=</SPAN> A else <SPAN 
+class=SpellE>SectTyp</SPAN> := B;<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB"><o:p>&nbsp;</o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB"><o:p>&nbsp;</o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB style="mso-ansi-language: EN-GB">Now we have 
+all information we need to determine the array coordinate of the tile our pixel 
+is in. Depending on what section we have our further calculations are 
+different.<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB"><o:p>&nbsp;</o:p></SPAN></P>
+<P class=MsoNormal><B style="mso-bidi-font-weight: normal"><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB">A-Sections<o:p></o:p></SPAN></B></P>
+<P class=MsoNormal><B style="mso-bidi-font-weight: normal"><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB"><o:p>&nbsp;</o:p></SPAN></B></P>
+<P class=MsoNormal><SPAN lang=EN-GB style="mso-ansi-language: EN-GB">A-Sections 
+consist of three areas.<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB style="mso-ansi-language: EN-GB">If the 
+pixel position in question lies within the big bottom area the array coordinate 
+of the tile is the same as the coordinate of our section.<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB style="mso-ansi-language: EN-GB">If the 
+position lies within the top left edge we have to subtract one from the 
+horizontal (x) and the vertical (y) component of our section 
+coordinate.<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB style="mso-ansi-language: EN-GB">If the 
+position lies within the top right edge we reduce only the vertical 
+component.<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB"><o:p>&nbsp;</o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB style="mso-ansi-language: EN-GB">It’s not 
+hard to determine in which area we are if we know the gradient of the diagonal 
+edges. Every edge has a gradient of either </SPAN><B 
+style="mso-bidi-font-weight: normal"><SPAN lang=EN-GB 
+style="FONT-FAMILY: Arial; mso-ansi-language: EN-GB">m = <SPAN 
+class=SpellE>HexagonH</SPAN> / <SPAN 
+class=SpellE>HexagonR</SPAN></SPAN></B><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB"> or </SPAN><B 
+style="mso-bidi-font-weight: normal"><SPAN lang=EN-GB 
+style="FONT-FAMILY: Arial; mso-ansi-language: EN-GB">m’ = - <SPAN 
+class=SpellE>HexagonH</SPAN> / <SPAN 
+class=SpellE>HexagonR</SPAN></SPAN></B><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB">.<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB"><o:p>&nbsp;</o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB style="mso-ansi-language: EN-GB">The 
+following code shows how you can code the area 
+distinction:<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB"><o:p>&nbsp;</o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB">//pseudo 
+Code!!!<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB">// 
+middle<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN class=SpellE><SPAN class=GramE><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB">ArrayY</SPAN></SPAN></SPAN><SPAN 
+class=GramE><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB"> 
+:=</SPAN></SPAN><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB"> <SPAN 
+class=SpellE>SectY</SPAN>;<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN class=SpellE><SPAN class=GramE><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB">ArrayX</SPAN></SPAN></SPAN><SPAN 
+class=GramE><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB"> 
+:=</SPAN></SPAN><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB"> <SPAN 
+class=SpellE>SectX</SPAN>;<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB">// 
+left Edge<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN class=GramE><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB">if</SPAN></SPAN><SPAN 
+lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB"> <SPAN 
+class=SpellE>SectPxlY</SPAN> &lt; (<SPAN class=SpellE>HexagonH</SPAN> - <SPAN 
+class=SpellE>SectPxlX</SPAN> * m) then begin<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB"><SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN><SPAN class=SpellE><SPAN 
+class=GramE>ArrayY</SPAN></SPAN><SPAN class=GramE> :=</SPAN> <SPAN 
+class=SpellE>SectY</SPAN> – 1;<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB"><SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN><SPAN class=SpellE><SPAN 
+class=GramE>ArrayX</SPAN></SPAN><SPAN class=GramE> :=</SPAN> <SPAN 
+class=SpellE>SectX</SPAN> - 1;<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN class=GramE><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB">end</SPAN></SPAN><SPAN 
+lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB">;<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB">// 
+right Edge<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN class=GramE><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB">if</SPAN></SPAN><SPAN 
+lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB"> <SPAN 
+class=SpellE>SectPxlY</SPAN> &lt; (- <SPAN class=SpellE>HexagonH</SPAN> + <SPAN 
+class=SpellE>SectPxlX</SPAN> * m) then begin<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB"><SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN><SPAN class=SpellE><SPAN 
+class=GramE>ArrayY</SPAN></SPAN><SPAN class=GramE> :=</SPAN> <SPAN 
+class=SpellE>SectY</SPAN> - 1;<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB"><SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN><SPAN class=SpellE><SPAN 
+class=GramE>ArrayX</SPAN></SPAN><SPAN class=GramE> :=</SPAN> <SPAN 
+class=SpellE>SectX</SPAN>;<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN class=GramE><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB">end</SPAN></SPAN><SPAN 
+lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB">;<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB"><o:p>&nbsp;</o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB"><o:p>&nbsp;</o:p></SPAN></P>
+<P class=MsoNormal><B style="mso-bidi-font-weight: normal"><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB">B-Sections<o:p></o:p></SPAN></B></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><B 
+style="mso-bidi-font-weight: normal"><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB"><o:p>&nbsp;</o:p></SPAN></B></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB">B-Sections consist of three areas, too. But 
+they are shaped differently!<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB style="mso-ansi-language: EN-GB">If the 
+pixel position in question lies within the right area the array coordinate of 
+the tile is the same as the coordinate of our section.<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB style="mso-ansi-language: EN-GB">If the 
+position lies within the left area we have to subtract one from the horizontal 
+(x) component of our section coordinate.<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB style="mso-ansi-language: EN-GB">If the 
+position lies within the top area we have to subtract one from the vertical (y) 
+component.<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB"><o:p>&nbsp;</o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB">We will again use the gradient of the edges to 
+determine in which area the pixel is. The following code shows 
+how:<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB"><SPAN 
+style="mso-spacerun: yes">&nbsp;</SPAN><o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB">//pseudo 
+Code!!!<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB">// 
+right side<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN class=GramE><SPAN 
+lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB">if</SPAN></SPAN><SPAN 
+lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB"> <SPAN 
+class=SpellE>SectPxlX</SPAN><SPAN style="mso-spacerun: yes">&nbsp; </SPAN>&gt;= 
+<SPAN class=SpellE>HexagonR</SPAN> then begin<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB"><SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN><SPAN class=GramE>if</SPAN> <SPAN 
+class=SpellE>sectPxlY</SPAN> &lt; (2 * <SPAN class=SpellE>HexagonH</SPAN> - 
+<SPAN class=SpellE>SectPxlX</SPAN> * m) then begin<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN><SPAN class=SpellE><SPAN 
+class=GramE>ArrayY</SPAN></SPAN><SPAN class=GramE> :=</SPAN> <SPAN 
+class=SpellE>SectY</SPAN> – 1;<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN><SPAN 
+class=SpellE>ArrayX</SPAN> := <SPAN 
+class=SpellE>SectX</SPAN>;<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB"><SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN><SPAN class=GramE>end</SPAN> else 
+begin<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN><SPAN class=SpellE><SPAN 
+class=GramE>ArrayY</SPAN></SPAN><SPAN class=GramE> :=</SPAN> <SPAN 
+class=SpellE>SectY</SPAN>;<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN><SPAN class=SpellE><SPAN 
+class=GramE>ArrayX</SPAN></SPAN><SPAN class=GramE> :=</SPAN> <SPAN 
+class=SpellE>SectX</SPAN>;<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB"><SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN><SPAN 
+class=GramE>end</SPAN>;<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN class=GramE><SPAN 
+lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB">end</SPAN></SPAN><SPAN 
+lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB">;<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB">// 
+left side<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN class=GramE><SPAN 
+lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB">if</SPAN></SPAN><SPAN 
+lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB"> <SPAN 
+class=SpellE>SectPxlX</SPAN> &lt; <SPAN class=SpellE>HexagonR</SPAN> then 
+begin<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB"><SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN><SPAN class=GramE>if</SPAN> <SPAN 
+class=SpellE>SectPxlY</SPAN> &lt; (<SPAN class=SpellE>SectPxlX</SPAN> * m) then 
+begin<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN><SPAN class=SpellE><SPAN 
+class=GramE>ArrayY</SPAN></SPAN><SPAN class=GramE> :=</SPAN> <SPAN 
+class=SpellE>SectY</SPAN> – 1;<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN><SPAN class=SpellE><SPAN 
+class=GramE>ArrayX</SPAN></SPAN><SPAN class=GramE> :=</SPAN> <SPAN 
+class=SpellE>SectX</SPAN>;<SPAN style="mso-spacerun: yes">&nbsp;&nbsp; 
+</SPAN><o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB"><SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN><SPAN class=GramE>end</SPAN> else 
+begin<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN><SPAN class=SpellE><SPAN 
+class=GramE>ArrayY</SPAN></SPAN><SPAN class=GramE> :=</SPAN> <SPAN 
+class=SpellE>SectY</SPAN>;<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN><SPAN class=SpellE><SPAN 
+class=GramE>ArrayX</SPAN></SPAN><SPAN class=GramE> :=</SPAN> <SPAN 
+class=SpellE>SectX</SPAN> – 1;<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB"><SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN><SPAN 
+class=GramE>end</SPAN>;<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN class=GramE><SPAN 
+lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB">end</SPAN></SPAN><SPAN 
+lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB">;<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN lang=EN-GB 
+style="COLOR: blue; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-GB"><o:p>&nbsp;</o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB">Well, now you should be able to handle mouse 
+events and cope with every other problem that involves the conversion of pixel 
+coordinates to array coordinates.<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB"><o:p>&nbsp;</o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB">Last but not least I want to thank David House 
+for reviewing this article!<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB"><o:p>&nbsp;</o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB">Please visit my website at </SPAN><A 
+href="http://pixelpracht.flipcode.com/"><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB">http://pixelpracht.flipcode.com</SPAN></A><SPAN 
+lang=EN-GB style="mso-ansi-language: EN-GB"> to get more articles and other 
+stuff.<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB">I’d welcome some comments or inspirational 
+ideas. Here’s my mail address: </SPAN><A href="mailto:lithander@gmx.de"><SPAN 
+lang=EN-GB style="mso-ansi-language: EN-GB">lithander@gmx.de</SPAN></A><SPAN 
+lang=EN-GB style="mso-ansi-language: EN-GB">!<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB"><o:p>&nbsp;</o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify">Happy <SPAN 
+class=SpellE>Coding</SPAN>!</P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp; </SPAN>Thomas</P></DIV></BODY></HTML>
