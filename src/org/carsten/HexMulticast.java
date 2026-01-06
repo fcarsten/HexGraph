@@ -80,28 +80,29 @@ public class HexMulticast extends HexListener {
 		if (l.size() == 0)
 			throw new IOException("No network interface found");
 
-		MulticastSocket s[] = new MulticastSocket[l.size()];// (6789);
+		ArrayList<MulticastSocket> sList = new ArrayList<>();
+
 		System.err.println("Joining group: " + group);
 		for (int i = 0; i < l.size(); i++) {
 			try {
-				s[i] = new MulticastSocket(6789);
-				s[i].setTimeToLive(64);
+				MulticastSocket s = new MulticastSocket(6789);
+				s.setTimeToLive(64);
 				NetworkInterface ni = (NetworkInterface) l.get(i);
 
-				s[i].setNetworkInterface(ni);
+				s.setNetworkInterface(ni);
 				// s[i].setLoopbackMode(true);
 
-				s[i].joinGroup(group);
-				System.err.println("Multicast interface: " + ni.getName() + " enabled, ttl:" + s[i].getTimeToLive());
+				s.joinGroup(group);
+				System.err.println("Multicast interface: " + ni.getName() + " enabled, ttl:" + s.getTimeToLive());
+				sList.add(s);
 
 			} catch (IOException eio) {
 				System.err.println("Multicast error on interface: " + l.get(i));
-				s[i] = null;
 			}
 
 		}
 
-		return s;
+		return sList.toArray(new MulticastSocket[0]);
 	}
 
 	void sendDatagram(String msg, MulticastSocket s[]) throws IOException {
