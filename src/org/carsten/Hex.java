@@ -15,6 +15,8 @@ import java.awt.geom.*;
 
 import Jama.*;
 
+import static java.awt.Component.LEFT_ALIGNMENT;
+
 /*
 * Hex game controller for the graph representation
 *
@@ -24,7 +26,7 @@ import Jama.*;
 *
 */
 
-public class Hex extends JApplet implements ActionListener, HexContestant {
+public class Hex implements ActionListener, HexContestant {
 
 	Graph hex = null;
 	public int size = 11;
@@ -34,7 +36,7 @@ public class Hex extends JApplet implements ActionListener, HexContestant {
 
 	String algorithm = "tfdpred";
 
-	public Vector<Node> deletedNodes = new Vector<>();
+//	public Vector<Node> deletedNodes = new Vector<>();
 
 	// for animation purposes
 	Timer timer;
@@ -45,13 +47,6 @@ public class Hex extends JApplet implements ActionListener, HexContestant {
 
 	public int getGameMode() {
 		return engine.getGameMode();
-	}
-
-	// Called only when this is run as an applet.
-	// private Image Buffer;
-	@Override
-	public void init() {
-		buildUI(getContentPane());
 	}
 
 	void buildUI(Container container) {
@@ -212,7 +207,7 @@ public class Hex extends JApplet implements ActionListener, HexContestant {
 						n_neighbours.remove(current);
 						hex.removeEdge(current, n);
 					}
-					deletedNodes.add(current);
+//					deletedNodes.add(current);
 					nodes.remove(current);
 					--i;
 				} else {
