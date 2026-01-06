@@ -11,7 +11,7 @@ import java.awt.Color;
 import java.util.Vector;
 
 // represents the hex game graph as a group of nodes and links between nodes
-class Graph {
+public class Graph {
 	public Vector<Node> nodes;
 	public Vector<Edge> edges;
 

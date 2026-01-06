@@ -7,7 +7,7 @@
 package org.carsten;
 // Represents an edge between two nodes
 
-class Edge {
+public class Edge {
 	public Node node1;
 	public Node node2;
 

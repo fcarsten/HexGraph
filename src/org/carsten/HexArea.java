@@ -31,9 +31,8 @@ public class HexArea extends JPanel {
 	public boolean edgeToBeRemoved = false;
 
 	public boolean rearrange_nodes = false;
-	private int playerNumber;
 
-	public boolean swapRule = true;
+    public boolean swapRule = true;
 	public boolean nodesOn = true;
 
 	public boolean saveImages = false;
@@ -53,8 +52,7 @@ public class HexArea extends JPanel {
 
 	public void initGame(Graph h, int n) {
 		hex = h;
-		playerNumber = n;
-		gameOver = false;
+        gameOver = false;
 
 		if (swapRule)
 			swap = true;
@@ -304,20 +302,20 @@ public class HexArea extends JPanel {
 			return;
 
 		Color perspective = Color.black;
-		if (view.equals("red"))
-			perspective = Color.red;
-		else if (view.equals("blue")) {
-			perspective = Color.blue;
-		} else if (view.equals("player")) {
-			if (!controller.timer.isRunning() || rearrange_nodes == false) {
-				perspective = currentColour;
-			} else {
-				if (currentColour == Color.red)
-					perspective = Color.blue;
-				else
-					perspective = Color.red;
-			}
-		}
+        switch (view) {
+            case "red" -> perspective = Color.red;
+            case "blue" -> perspective = Color.blue;
+            case "player" -> {
+                if (!controller.timer.isRunning() || rearrange_nodes == false) {
+                    perspective = currentColour;
+                } else {
+                    if (currentColour == Color.red)
+                        perspective = Color.blue;
+                    else
+                        perspective = Color.red;
+                }
+            }
+        }
 
 		Vector<Node> nodes = hex.nodes;
 

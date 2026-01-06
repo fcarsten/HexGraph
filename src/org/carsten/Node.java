@@ -1,9 +1,10 @@
-/**
+/***
  * Copyright 2003-2016 Carsten Friedrich (Carsten.Friedrich@gmail.com) and Colin Murray
  *
  * License: GNU GENERAL PUBLIC LICENSE 3.0 (https://www.gnu.org/copyleft/gpl.html)
  *
- */
+***/
+
 package org.carsten;
 
 import java.awt.Color;
@@ -12,7 +13,7 @@ import java.util.Vector;
 import java.awt.geom.*;
 
 // represents a node within the graph
-class Node {
+public class Node {
 	public double x_coord;
 	public double y_coord;
 
@@ -42,7 +43,7 @@ class Node {
 
 	// for force directed algorithm
 	Point2D.Double force = new Point2D.Double();
-	double zone[] = new double[8];
+	double[] zone = new double[8];
 
 	// creates a node with given coordinates and identifier
 	public Node(double x, double y, int i) {
