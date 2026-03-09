@@ -11,7 +11,8 @@ package org.carsten;
  *
  * Created: Fri Jan 10 15:56:15 2003
  *
- * Based on Hex Maniac v1.2, Copyright Cameron Browne 5/10/2000
+ * Based on Hex Maniac v1.2, Copyright Cameron Browne 5/10/2000 used with permission (email 7 Jan 2026)
+ * article describing Hex Maniac: https://www.abstractgames.org/uploads/1/1/6/4/116462923/abstract_games_issue_8.pdf
  *
  */
 
