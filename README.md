@@ -15,3 +15,6 @@ The HexGraph project is a Java-based implementation that provides a framework fo
 1. Clone the repository.
 2. Compile the Java files.
 3. Run the main application to start a new game.
+
+This project contains Hex Maniac code by Cameron Browne - used with permission.
+More information about Hex Maniac is available at: https://www.abstractgames.org/uploads/1/1/6/4/116462923/abstract_games_issue_8.pdf
